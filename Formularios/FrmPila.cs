@@ -57,8 +57,13 @@ namespace EstructurasDinámicas.Formularios
 
         private void btnMostrarUltimo_Click(object sender, EventArgs e)
         {
-            pila.Peek();
-            lblPila.Text = MostrarElementos();
+            try
+            {
+                MessageBox.Show($"{pila.Peek()}", "Ultimo elemento ingresado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }catch(InvalidOperationException)
+            {
+                MessageBox.Show("Pila vacía", "advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }
